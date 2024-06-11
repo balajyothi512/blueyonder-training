@@ -1,0 +1,47 @@
+<html>
+   <head>
+      <title>Registration Page</title>
+   </head>
+   <body>
+      <h2 style ="text-align:center">Registration Form</h2>
+      <form align="center">
+         <div >
+            <label for="desc">Desc</label><br>
+            <textarea id="desc" type="text" name="Desc" placeholder="Write something.." ></textarea>
+            <br> 
+            <label for="fname">First Name</label><br>
+            <input type="text" id="fname" name="firstname" placeholder=" first name.."><br> 
+            <label for="lname">Last Name</label><br>
+            <input type="text" id="lname" name="lastname" placeholder=" last name.."><br> 
+            <label for="email">email</label><br>
+            <input type="text" id="email" name="email" placeholder="email.."><br> 
+            <label for="pword">Password</label><br>
+            <input type="text" id="pword" name="Password" placeholder="Password.."><br> 
+            <label for="cpword">Confirm Password</label><br>
+            <input type="text" id="cpword" name="cpword" placeholder="Confirm Password.."><br> 
+            <label for="country">Country</label><br>
+            <select id="country" name="country">
+               <option value="australia">Australia</option>
+               <option value="canada">Canada</option>
+               <option value="usa">USA</option>
+            </select>
+            <br> <br>
+            <p>Choose your favorite Web language:</p>
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">HTML</label><br>
+            <input type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">CSS</label><br>
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">JavaScript</label><br> 
+            <h1>Audio Example</h1>
+            <audio controls>
+               <source src="audio-file.mp3" type="audio/mpeg">
+               <source src="audio-file.ogg" type="audio/ogg">
+               Your browser does not support the audio element.
+            </audio>
+            <br> <br>
+            <input type="submit" value="Submit">
+         </div>
+      </form>
+   </body>
+</html>
