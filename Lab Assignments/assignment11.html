@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Workers Example</title>
+  <style>
+    /* Basic styling for demonstration purposes */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Web Workers Example</h2>
+  <button onclick="startWorker()">Start Time-Consuming Task</button>
+  <div id="result">
+    <h3>Result:</h3>
+    <p id="output"></p>
+  </div>
+
+  <script>
+    // Function to start the web worker
+    function startWorker() {
+      if (typeof(Worker) !== "undefined") {
+        // Web worker supported
+        if (typeof(worker) == "undefined") {
+          // Create a new web worker
+          worker = new Worker('worker.js');
+
+          // Message handler for receiving results from web worker
+          worker.onmessage = function(event) {
+            document.getElementById('output').textContent = event.data;
+          };
+        }
+      } else {
+        // Web worker not supported
+        document.getElementById('output').textContent = "Web Workers are not supported in this browser.";
+      }
+    }
+
+    // Function to terminate the web worker
+    function stopWorker() {
+      worker.terminate();
+      worker = undefined;
+      document.getElementById('output').textContent = "Web Worker terminated.";
+    }
+    // Simulate a time-consuming task in the web worker
+function timeConsumingTask() {
+  // Perform a task that takes some time
+  let result = '';
+  for (let i = 0; i < 100000000; i++) {
+    result += i;
+  }
+  return result;
+}
+
+// Event listener for messages from the main script
+self.onmessage = function(event) {
+  // Perform the time-consuming task
+  let result = timeConsumingTask();
+  
+  // Send the result back to the main script
+  self.postMessage(result);
+};
+
+  </script>
+</body>
+</html>

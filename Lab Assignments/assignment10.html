@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage Example</title>
+  <style>
+    /* Basic styling for demonstration purposes */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    label, input, button {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #userData {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Local Storage Example</h2>
+  <form id="userDataForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" required>
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="userData">
+    <h3>Stored User Data:</h3>
+    <ul id="userDataList"></ul>
+  </div>
+
+  <script>
+    // Get form element and user data list element
+    const userDataForm = document.getElementById('userDataForm');
+    const userDataList = document.getElementById('userDataList');
+
+    // Event listener for form submission
+    userDataForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      // Create object with user data
+      const userData = {
+        name: name,
+        email: email,
+        phone: phone
+      };
+
+      // Store data in local storage
+      localStorage.setItem('userData', JSON.stringify(userData));
+
+      // Clear form fields
+      userDataForm.reset();
+
+      // Display stored data
+      displayStoredUserData();
+    });
+
+    // Function to retrieve and display stored data
+    function displayStoredUserData() {
+      // Clear previous data
+      userDataList.innerHTML = '';
+
+      // Retrieve data from local storage
+      const storedUserData = localStorage.getItem('userData');
+
+      if (storedUserData) {
+        const userData = JSON.parse(storedUserData);
+
+        // Display each item in a list
+        Object.keys(userData).forEach(key => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${key}: ${userData[key]}`;
+          userDataList.appendChild(listItem);
+        });
+      } else {
+        const listItem = document.createElement('li');
+        listItem.textContent = 'No user data stored.';
+        userDataList.appendChild(listItem);
+      }
+    }
+
+    // Initial display of stored data on page load
+    displayStoredUserData();
+  </script>
+</body>
+</html>

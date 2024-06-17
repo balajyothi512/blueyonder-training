@@ -1,0 +1,24 @@
+/* Basic styling for demonstration purposes */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  
+  .styled-svg rect {
+    fill: lightgreen;
+    stroke: darkgreen;
+    stroke-width: 3;
+  }
+  
+  .styled-svg circle {
+    fill: lightblue;
+    stroke: navy;
+    stroke-width: 3;
+  }
+  
+  .styled-svg line {
+    stroke: purple;
+    stroke-width: 5;
+  }
+  

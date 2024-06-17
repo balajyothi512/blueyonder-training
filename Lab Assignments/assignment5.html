@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with Various Input Elements</title>
+  <style>
+    body{
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sample Form</h2>
+  <form action="/submit-form" method="POST">
+    <div>
+      <label for="firstname">First Name:</label>
+      <input type="text" id="firstname" name="firstname" required>
+    </div> <br> 
+    <div>
+      <label for="lastname">Last Name:</label>
+      <input type="text" id="lastname" name="lastname" required>
+    </div><br> 
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div><br> 
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+    </div><br>
+    <div>
+      <label for="bio">Biography:</label><br>
+      <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
+    </div><br> 
+    <div>
+      <label>Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label><br>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label><br>
+      <input type="radio" id="other" name="gender" value="other">
+      <label for="other">Other</label>
+    </div><br> 
+    <div>
+      <label>Languages:</label><br>
+      <input type="checkbox" id="english" name="language" value="english">
+      <label for="english"> English</label><br>
+      <input type="checkbox" id="spanish" name="language" value="spanish">
+      <label for="spanish"> Spanish</label><br>
+      <input type="checkbox" id="french" name="language" value="french">
+      <label for="french"> French</label>
+    </div><br> 
+    <div>
+      <label for="country">Country:</label>
+      <select id="country" name="country">
+        <option value="usa">USA</option>
+        <option value="canada">Canada</option>
+        <option value="uk">UK</option>
+        <option value="australia">Australia</option>
+      </select>
+    </div><br> 
+    <div>
+      <input type="submit" value="Submit">
+      <input type="reset" value="Reset">
+    </div><br> 
+  </form>
+</body>
+</html>

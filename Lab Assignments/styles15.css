@@ -1,0 +1,30 @@
+/* Basic styling for demonstration purposes */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+  }
+  
+  #drag-container, #drop-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .draggable, .dropzone {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  .draggable {
+    background-color: #f0f0f0;
+  }
+  
+  .dropzone {
+    background-color: #e0e0e0;
+  }
+  
+  
